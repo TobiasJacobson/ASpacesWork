@@ -1,9 +1,7 @@
 function [F] = func5(X, a, b, t, varargin)
 
 % Syntax for inputting multiple variables?
-% a changes x positioning
-% b changes slope of curve
-% t changes y positioning
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
