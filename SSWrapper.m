@@ -12,7 +12,7 @@
 %10, mave, sdr
 %11, opg, sdr
 
-function [W] = SSWrapper(F,X,t)
+function [W,metric] = SSWrapper(F,X,Grnd, t)
 % Function will return 
 %   - W: The set of eigenVectors
 %   - metric: 
@@ -25,14 +25,22 @@ addpath([AS_HOME,'/ResponseSurfaces']);
 addpath([AS_HOME,'/Domains']);
 
 % Needed inputs
-%u =[1;1];
-%u = u/norm(u);
+u =[1;1];
+u = u/norm(u);
 
 % Running compute
-sub = compute(X, F, [],[], t, 0);
-%w1 = sub.eigenvectors(:,1);
-%metric = 1-abs(u'*w1);
-W = sub.eigenvectors;
+if(0 <= t) && (t <= 4)
+    sub = compute(X, F, Grnd,[], t, 0);
+    w1 = sub.eigenvectors(:,1);
+    metric = 1-abs(u'*w1);
+    W = sub.eigenvectors;
+else
+    sub = compute(X, F, [],[], t, 0);
+    w1 = sub.eigenvectors(:,1);
+    metric = 1-abs(u'*w1);
+    W = sub.eigenvectors;
+end
+
 
 end
     
